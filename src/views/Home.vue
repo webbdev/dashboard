@@ -104,102 +104,102 @@
 <script>
 import zingchartVue from 'zingchart-vue';
 
-    export default {
-        name: 'Home',
-        components: {
-            zingchart: zingchartVue,
-        },
-        data() {
-            return {
-                chartData: {
-                    'London': 9126366,
-                    'Berlin': 3748148,
-                    'Madrid': 3223334,
-                    'Rome': 2857321,
-                    'Paris': 2140526
+export default {
+    name: 'Home',
+    components: {
+        zingchart: zingchartVue,
+    },
+    data() {
+        return {
+            chartData: {
+                'London': 9126366,
+                'Berlin': 3748148,
+                'Madrid': 3223334,
+                'Rome': 2857321,
+                'Paris': 2140526
+            },
+            values: [30000,80000,75000,50000,45000,55000,73000,64000],
+
+            users: [
+                {   
+                    "id": 1,
+                    "city": "London",
+                    "country": "UK",
+                    "population": "9,126,366"
                 },
-                values: [30000,80000,75000,50000,45000,55000,73000,64000],
+                
+                {
+                    "id": 2,
+                    "city": "Berlin",
+                    "country": "Germany",
+                    "population": "3,748,148"
+                },
+                {
+                    "id": 3,
+                    "city": "Madrid",
+                    "country": "Spain",
+                    "population": "3,223,334"
+                },
+                { 
+                    "id": 4,
+                    "city": "Rome",
+                    "country": "Italy",
+                    "population": "2,857,321"
+                },
+                {
+                    "id": 5,
+                    "city": "Paris",
+                    "country": "France",
+                    "population": "2,140,526"
+                }
+            ]
+        }
+    },
 
-                users: [
-                    {   
-                        "id": 1,
-                        "city": "London",
-                        "country": "UK",
-                        "population": "9,126,366"
+    computed: {
+        chartConfig() {
+            return {
+                type: 'bar', 
+                legend: {},
+                tooltip: {
+                    negation: "currency",
+                    text: "£%v",
+                    "thousands-separator": ","
+                },
+                'scale-x': {
+                    step: "month",
+                    minValue: firstDayOfTheCurrentYear(),
+                    label: {
+                        text: "Month/Year"
                     },
-                    
-                    {
-                        "id": 2,
-                        "city": "Berlin",
-                        "country": "Germany",
-                        "population": "3,748,148"
-                    },
-                    {
-                        "id": 3,
-                        "city": "Madrid",
-                        "country": "Spain",
-                        "population": "3,223,334"
-                    },
-                    { 
-                        "id": 4,
-                        "city": "Rome",
-                        "country": "Italy",
-                        "population": "2,857,321"
-                    },
-                    {
-                        "id": 5,
-                        "city": "Paris",
-                        "country": "France",
-                        "population": "2,140,526"
+                    transform: {
+                        type: "date",
+                        all: "%m/%y"
                     }
-                ]
-            }
-        },
-
-        computed: {
-            chartConfig() {
-                return {
-                    type: 'bar', 
-                    legend: {},
-                    tooltip: {
-                        negation: "currency",
-                        text: "£%v",
-                        "thousands-separator": ","
+                },
+                'scale-y': {
+                    label: { 
+                        text: "Amount in GBP",
                     },
-                    'scale-x': {
-                        step: "month",
-                        minValue: firstDayOfTheCurrentYear(),
-                        label: {
-                            text: "Month/Year"
-                        },
-                        transform: {
-                            type: "date",
-                            all: "%m/%y"
-                        }
-                    },
-                    'scale-y': {
-                        label: { 
-                            text: "Amount in GBP",
-                        },
-                        short:true,
-                        shortUnit: 'K',
-                    },
-                    series: [
-                        {
-                            values: this.values,
-                            'background-color': "#6666FF",
-                            text: 'Actual'
-                        }
-                    ],
-                    title: {
-                        text: 'Actual Revenue',
-                        fontSize: 16,
-                        color: "#34495e" 
+                    short:true,
+                    shortUnit: 'K',
+                },
+                series: [
+                    {
+                        values: this.values,
+                        'background-color': "#6666FF",
+                        text: 'Actual'
                     }
-                } 
-            }
-        } 
-    }
+                ],
+                title: {
+                    text: 'Actual Revenue',
+                    fontSize: 16,
+                    color: "#34495e" 
+                }
+            } 
+        }
+    } 
+}
 
 function firstDayOfTheCurrentYear() {
   const today = new Date();
@@ -266,6 +266,10 @@ function firstDayOfTheCurrentYear() {
             }
         }
     }
+}
+
+#zingchart-vue-0-license-text {
+    display: block !important;
 }
 
 .edit-data-box {
