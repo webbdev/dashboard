@@ -1,24 +1,9 @@
-# dashboard
+## Dashboard
+Vue.js project
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### How to run
+1. git clone
+2. cd dashboard
+3. yarn install
+4. yarn serve
+5. navigate to `http://localhost:8080`
