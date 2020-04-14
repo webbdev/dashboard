@@ -1,7 +1,7 @@
 ## Dashboard
 Vue.js project
 
-https://dashboard-vuejs.netlify.com/
+https://dashboard-vuejs.netlify.app/
 
 ### How to run
 1. git clone https://github.com/webbdev/dashboard.git
